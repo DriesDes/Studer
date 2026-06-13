@@ -13,7 +13,7 @@ import { getAchievementsToUnlock } from './src/lib/achievements';
 
 const dev = process.env.NODE_ENV !== 'production';
 const hostname = '0.0.0.0';
-const port = parseInt(process.env.PORT ?? '3000', 10);
+const port = parseInt(process.env.PORT ?? '2020', 10);
 
 const prisma = new PrismaClient();
 

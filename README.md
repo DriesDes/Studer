@@ -35,7 +35,7 @@ npm run db:push
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:2020](http://localhost:2020).
 
 ### Docker (Recommended for self-hosting)
 
@@ -66,7 +66,7 @@ That's it. The SQLite database persists in a Docker volume named `studer-data`.
 | Variable       | Default                     | Description              |
 |---------------|-----------------------------|--------------------------|
 | `DATABASE_URL` | `file:./data/studer.db`    | SQLite file path          |
-| `PORT`         | `3000`                      | HTTP port                 |
+| `PORT`         | `2020`                      | HTTP port                 |
 | `NODE_ENV`     | `development`               | Environment mode          |
 
 ---
