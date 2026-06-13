@@ -1,0 +1,30 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded-square background -->
+  <rect width="100" height="100" rx="22" ry="22" fill="url(#bg)"/>
+
+  <!-- Crown: wide button cap -->
+  <rect x="42" y="18" width="16" height="5" rx="2.5" fill="white"/>
+  <!-- Crown: slim stem connecting cap to ring -->
+  <rect x="47" y="22" width="6" height="9" rx="1.5" fill="white"/>
+
+  <!-- Ring track (faint) -->
+  <circle cx="50" cy="58" r="27"
+    fill="none" stroke="white" stroke-width="6.5" opacity="0.14"/>
+
+  <!-- Progress arc: 75% (270°) clockwise from 12-o'clock -->
+  <circle cx="50" cy="58" r="27"
+    fill="none" stroke="white" stroke-width="6.5"
+    stroke-dasharray="127.2 42.4"
+    stroke-linecap="round"
+    transform="rotate(-90 50 58)"/>
+
+  <!-- Centre dot -->
+  <circle cx="50" cy="58" r="3.5" fill="white" opacity="0.9"/>
+</svg>

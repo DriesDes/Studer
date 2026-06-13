@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Subject {
+  id        String   @id @default(cuid())
+  name      String
+  color     String   @default("#6366f1")
+  createdAt DateTime @default(now())
+
+  chapters Chapter[]
+  sessions StudySession[]
+}
+
+model Chapter {
+  id        String  @id @default(cuid())
+  subjectId String
+  title     String
+  order     Int
+  completed Boolean @default(false)
+
+  subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+}
+
+// status: "ACTIVE" | "COMPLETED" | "ABANDONED"
+model StudySession {
+  id             String    @id @default(cuid())
+  subjectId      String?
+  startTime      DateTime
+  endTime        DateTime?
+  targetDuration Int       @default(0)
+  xpEarned       Int       @default(0)
+  status         String    @default("ACTIVE")
+
+  subject Subject? @relation(fields: [subjectId], references: [id], onDelete: SetNull)
+}
+
+model UserProgress {
+  id             String   @id @default(cuid())
+  currentXp      Int      @default(0)
+  currentLevel   Int      @default(1)
+  currentStreak  Int      @default(0)
+  lastActiveDate DateTime @default(now())
+}
+
+model Achievement {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String
+  icon        String    @default("🏆")
+  unlockedAt  DateTime?
+}

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2019"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "target": "ES2019"
+  },
+  "include": [
+    "server.ts",
+    "src/lib/xp.ts",
+    "src/lib/achievements.ts",
+    "src/types/index.ts"
+  ],
+  "exclude": ["node_modules", ".next", "src/app", "src/components", "src/hooks"]
+}
