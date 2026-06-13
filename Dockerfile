@@ -28,7 +28,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
+ENV PORT=2020
 
 # Create data directory for SQLite
 RUN mkdir -p /app/data && chown -R node:node /app/data
@@ -41,12 +41,15 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
 
+# Fix permissions for Prisma engines
+RUN chown -R node:node /app/node_modules
+
 # Create startup entrypoint: push DB schema, then start server
 COPY docker-entrypoint.sh ./docker-entrypoint.sh
 RUN chmod +x ./docker-entrypoint.sh
 
 USER node
 
-EXPOSE 3000
+EXPOSE 2020
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
